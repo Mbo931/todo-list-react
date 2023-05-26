@@ -5,15 +5,6 @@ const initialState = {
   taskList: [{ text: 'Tache 1', isDone: false }, { text: 'Tache 2', isDone: true }]
 };
 
-export const ADD_TASK = 'ADD_TASK';
-
-export const addTask = (task) => {
-  return {
-    type: ADD_TASK,
-    payload: task
-  };
-};
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_TASK':
@@ -36,7 +27,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         taskList: filteredTaskList
       };
-    case ADD_TASK:
+    case 'ADD_TASK':
       if (action.payload.trim() === '') {
         return state;
       }
