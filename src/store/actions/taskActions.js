@@ -1,4 +1,5 @@
 export const UPDATE_TASK = 'UPDATE_TASK';
+export const DELETE_TASK = 'DELETE_TASK';
 
 export const updateTask = (updatedTask) => {
   return {
@@ -6,3 +7,10 @@ export const updateTask = (updatedTask) => {
     payload: updatedTask,
   };
 };
+
+export const deleteTask = (deletedTask) => {
+    return {
+        type: DELETE_TASK,
+        payload: deletedTask
+    }
+}

@@ -7,25 +7,31 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case 'UPDATE_TASK':
-        const updatedTaskList = state.taskList.map((task, index) => {
-          if (index === action.payload.index) {
+        case 'UPDATE_TASK':
+            const updatedTaskList = state.taskList.map((task, index) => {
+                if (index === action.payload.index) {
+                    return {
+                        text: action.payload.text,
+                        isDone: action.payload.isDone
+                    };
+                }
+                return task;
+            });
             return {
-              text: action.payload.text,
-              isDone: action.payload.isDone
+                ...state,
+                taskList: updatedTaskList
             };
-          }
-          return task;
-        });
-        return {
-          ...state,
-          taskList: updatedTaskList
-        };
-      default:
-        return state;
+        case 'DELETE_TASK':
+            const filteredTaskList = state.taskList.filter((task, index) => index !== action.payload.index);
+            return {
+                ...state,
+                taskList: filteredTaskList
+            };
+        default:
+            return state;
     }
-  };
-  
+};
+
 
 const store = createStore(reducer);
 
