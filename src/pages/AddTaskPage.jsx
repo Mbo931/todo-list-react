@@ -2,8 +2,8 @@ import React from 'react';
 import AddTaskForm from '../components/Form/AddTaskForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { addTask } from '../store/actions/taskActions.js';
 
-import { addTask } from '../store/store';
 
 function AddTaskPage() {
   const { counter, taskList } = useSelector((state) => state);
@@ -16,11 +16,9 @@ function AddTaskPage() {
 
   return (
     <div>
-      <h1>Add Task Page</h1>
       <AddTaskForm onSubmit={onAddTask} />
       <button onClick={goBack}>Retour</button>
     </div>
   );
 }
-
 export default AddTaskPage;

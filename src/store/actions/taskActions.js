@@ -1,6 +1,6 @@
 export const UPDATE_TASK = 'UPDATE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
-
+export const ADD_TASK = 'ADD_TASK';
 
 export const updateTask = (updatedTask) => {
   return {
@@ -15,4 +15,11 @@ export const deleteTask = (deletedTask) => {
         payload: deletedTask
     }
 }
+
+export const addTask = (task) => {
+  return {
+    type: ADD_TASK,
+    payload: task
+  };
+};
 
