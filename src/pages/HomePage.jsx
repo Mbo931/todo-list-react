@@ -1,11 +1,22 @@
 import React from 'react';
 
-function HomePage() {
-  return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
-  );
+import { connect } from 'react-redux';
+import Task from '../components/Task';
+
+function HomePage({ taskList }) {
+    return (
+        <div>
+            {taskList.map((task, index) => (
+                <Task task={{ ...task, index: index }} key={index}></Task>
+            ))}
+        </div>
+    );
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+    return {
+        taskList: state.taskList,
+    };
+};
+
+export default connect(mapStateToProps)(HomePage);

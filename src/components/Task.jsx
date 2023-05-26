@@ -1,10 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { updateTask } from '../store/actions/taskActions.js';
 
-function Task() {
+function Task({ task }) {
+  const dispatch = useDispatch();
+
+  const handleCheckboxChange = () => {
+    const updatedTask = { ...task, isDone: !task.isDone };
+    dispatch(updateTask(updatedTask));
+  };
+
   return (
     <div>
-        Ceci est une tâche
+      {task.text}
+      <input
+        type="checkbox"
+        checked={task.isDone}
+        onChange={handleCheckboxChange}
+      />
     </div>
   );
 }
