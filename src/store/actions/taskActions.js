@@ -16,7 +16,6 @@ export const deleteTask = (deletedTask) => {
     }
 }
 
-
 export const addTask = (task) => {
   return {
     type: ADD_TASK,

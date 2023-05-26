@@ -4,7 +4,7 @@ import Task from '../components/Task';
 
 function HomePage({ taskList }) {
     return (
-        <div>
+        <div className='task-list-wrapper'>
             {taskList.map((task, index) => (
                 <Task task={{ ...task, index: index }} key={index}></Task>
             ))}

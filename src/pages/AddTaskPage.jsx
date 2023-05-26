@@ -10,10 +10,8 @@ function AddTaskPage() {
 
   return (
     <div>
-      <h1>Add Task Page</h1>
       <AddTaskForm onSubmit={onAddTask} />
     </div>
   );
 }
-
 export default AddTaskPage;
