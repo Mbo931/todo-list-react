@@ -67,3 +67,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.navbar {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
+}
+
+.nav-item a {
+  color: #333;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: #333;
+  color: #fff;
+}
