@@ -1,17 +1,24 @@
 import React from 'react';
 import AddTaskForm from '../components/Form/AddTaskForm';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { addTask } from '../store/store';
 
 function AddTaskPage() {
-  const { counter, taskList } = useSelector((state) => state); // Utilisation du sélecteur approprié ou ajustez-le selon votre configuration
+  const { counter, taskList } = useSelector((state) => state);
   const dispatch = useDispatch();
   const onAddTask = (item) => dispatch(addTask(item));
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div>
       <h1>Add Task Page</h1>
       <AddTaskForm onSubmit={onAddTask} />
+      <button onClick={goBack}>Retour</button>
     </div>
   );
 }
