@@ -2,6 +2,7 @@ import { createStore } from 'redux';
 
 const initialState = {
   counter: 0,
+  taskList : [{text : 'Tache 1',  isDone: false}]
 };
 
 const reducer = (state = initialState, action) => {
